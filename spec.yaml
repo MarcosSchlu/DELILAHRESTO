@@ -1,0 +1,313 @@
+---
+openapi: 3.0.0
+info:
+  title: Delilah Resto
+  description: Proyecto 3 de Acamica
+  contact:
+    email: mschlusselblum@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://localhost:3006
+  description: Delilah Resto
+tags:
+- name: Usuarios
+  description: Usuarios endpoints
+- name: Productos
+  description: Productos endpoints
+- name: Pedidos
+  description: Pedidos endpoints
+paths:
+  /nuevousuario:
+    post:
+      tags:
+      - Usuarios
+      summary: Crea nuevo usuario
+      description: Agrega un usuario a la base de datos
+      operationId: crearUsuario
+      requestBody:
+        description: Usuario a registrar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/crearUsuario'
+      responses:
+        "201":
+          description: Usuario creado exitosamente
+          content:
+            text/plain:
+              example: Usuario creado exitosamente
+        "400":
+          description: Todos los campos deben estar completos
+        "401":
+          description: El email ya fue registrado
+      security: []
+  /login:
+    post:
+      tags:
+      - Usuarios
+      summary: Login de usuario
+      description: Login de usuario
+      operationId: logIn
+      requestBody:
+        description: Usuario a loguear
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/logIn'
+      responses:
+        "201":
+          description: Usuario logueado exitosamente
+          content:
+            text/plain:
+              example: Usuario logueado exitosamente
+        "200":
+          description: Aministrador logueado exitosamente
+        "401":
+          description: Error en LogIn
+        "400":
+          description: Todos los campos deben estar completos
+  /usuarios:
+    get:
+      tags:
+      - Usuarios
+      summary: Usuarios registrados
+      description: Obtiene todos los usuarios registrados
+      operationId: buscarUsuarios
+      responses:
+        "201":
+          description: Usuarios registrados
+        "400":
+          description: No se encontraron usuarios registrados
+      security:
+      - BearerAuth: []
+  /nuevoproducto:
+    post:
+      tags:
+      - Productos
+      summary: Crea nuevo producto
+      description: Agrega un nuevo producto a la base de datos
+      operationId: crearproducto
+      responses:
+        "201":
+          description: Producto creado
+          content:
+            application/json:
+              example:
+                msg: Producto creado
+                product_id: 3
+        "400":
+          description: El producto ya existe
+        "404":
+          description: Error al crear el producto
+      security:
+      - BearerAuth: []
+  /productos:
+    get:
+      tags:
+      - Productos
+      summary: Productos registrados
+      description: Obtiene todos los productos registrados
+      operationId: buscarProductos
+      responses:
+        "201":
+          description: Productos registrados
+        "400":
+          description: No se encontraron productos registrados
+        "404":
+          description: Error al obtener productos registrados
+      security:
+      - BearerAuth: []
+  /actualizarproducto:
+    put:
+      tags:
+      - Productos
+      summary: Modifica un producto
+      description: Actualiza un producto existente
+      operationId: actualizarproducto
+      responses:
+        "201":
+          description: Producto modificado
+        "400":
+          description: Todos los campos deben estar completos
+        "404":
+          description: Error al actualizar el producto
+      security:
+      - BearerAuth: []
+  /borrarproducto:
+    delete:
+      tags:
+      - Productos
+      summary: Eliminar un producto
+      description: Elimina un producto de la base de datos
+      operationId: eliminarProducto
+      responses:
+        "201":
+          description: Producto eliminado
+        "404":
+          description: Error al eliminar el producto
+      security:
+      - BearerAuth: []
+  /nuevopedido:
+    post:
+      tags:
+      - Pedidos
+      summary: Crea nuevo pedido
+      operationId: crearPedido
+      requestBody:
+        description: Pedido a resgistrar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/crearPedido'
+      responses:
+        "201":
+          description: Pedido creado
+        "400":
+          description: Todos los campos deben estar completos
+        "409":
+          description: Error al crear edido
+      security:
+      - BearerAuth: []
+  /pedido:
+    get:
+      tags:
+      - Pedidos
+      summary: Pedidos registrados por usuario
+      responses:
+        "201":
+          description: Pedidos registrados por usuario
+      security:
+      - BearerAuth: []
+  /pedidos:
+    get:
+      tags:
+      - Pedidos
+      summary: Pedidos registrados
+      operationId: buscarPedidos
+      responses:
+        "201":
+          description: Lista de pedidos registrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/buscarPedidos'
+        "400":
+          description: No existen pedidos registrados
+        "409":
+          description: Erroa al buscar pedidos registrados
+      security:
+      - BearerAuth: []
+  /actualizarpedido:
+    post:
+      tags:
+      - Pedidos
+      summary: Modifica el estado de un pedido
+      operationId: actualizarpedido
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/actualizarpedido'
+        required: true
+      responses:
+        "201":
+          description: Pedido modificado!
+        "403":
+          description: El usuario no es administrador
+        "400":
+          description: Todos los campos deben estar completos
+      security:
+      - BearerAuth: []
+components:
+  schemas:
+    crearUsuario:
+      required:
+      - contraseña
+      - dirreciondeenvio
+      - email
+      - nombreyapellido
+      - telefono
+      - usuario
+      type: object
+      properties:
+        usuario:
+          type: string
+          example: JuanPerez
+        nombreyapellido:
+          type: string
+          example: Juan Perez
+        email:
+          type: string
+          example: juan@perez.com
+        telefono:
+          type: string
+          example: "1351531451"
+        dirreciondeenvio:
+          type: string
+          example: Maiupo 25
+        contraseña:
+          type: string
+          example: juanperez25
+    logIn:
+      required:
+      - contraseña
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+          example: juan@perez.com
+        contraseña:
+          type: string
+          example: juanperez25
+    actualizarpedido:
+      type: object
+      properties:
+        order_status:
+          type: string
+          description: estado
+          enum:
+          - Nuevo
+          - Confirmado
+          - En preparacion
+          - Enviado
+          - Entregado
+          - Cancelado
+    buscarPedidos:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 2
+        usuario:
+          type: integer
+        precio:
+          type: number
+          example: 400
+        estado:
+          type: string
+          example: Nuevo
+        formadepago:
+          type: string
+          example: Efectivo
+        dirrecciondeenvio:
+          type: string
+          example: Maipu 25
+        productos:
+          type: string
+          example: Milanesa
+    crearPedido:
+      required:
+      - formadepago
+      - producto
+      type: object
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
