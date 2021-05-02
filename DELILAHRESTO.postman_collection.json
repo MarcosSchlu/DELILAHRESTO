@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "2fe51161-c34c-4f3f-8a0b-b80e9cb2ad69",
+		"name": "DELILAHRESTO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USUARIO",
+			"item": [
+				{
+					"name": "LOGIN USUARIO",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"email\": \"juan@perez.com\",\r\n        \"contraseña\": \"jp25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN ADMIN",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"email\": \"admin@admin.com\",\r\n        \"contraseña\": \"adminadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USUARIOS",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "USUARIO NUEVO",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"usuario\": \"Dolo\",\r\n        \"nombreyapellido\": \"Dolo Perez\",\r\n        \"email\": \"dolo@perez.com\",\r\n        \"telefono\": \"0115465139\",\r\n        \"dirreciondeenvio\": \"Libertador 25\",\r\n        \"contraseña\": \"dolo25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/nuevousuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"nuevousuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCTOS",
+			"item": [
+				{
+					"name": "PRODUCTO NUEVO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"precio\": \"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/nuevoproducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"nuevoproducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTOS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"producto\": \"Hamburguesa\",\r\n        \"precio\": \"150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTO ACTUALIZAR",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"precio\": \"30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/actualizarproducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"actualizarproducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PORDUCTO BORRAR",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5Mzc1MTY4LCJleHAiOjE2MTkzNzg3Njh9.ZvuO8MtiE3har2OYzBNAD7LJqclNOWwAWqjwR3NVoeA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/borrarproducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"borrarproducto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PEDIDOS",
+			"item": [
+				{
+					"name": "PEDIDOS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"usuario\": \"1\",\r\n        \"producto\": \"Alfajor\",\r\n        \"precio\": \"20\",\r\n        \"direcciondeenvio\": \"Alfajor\",\r\n        \"formadepago\": \"Alfajor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PEDIDO ACTUALIZAR",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 5,\r\n        \"estado\" : \"Entregado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/actualizarpedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"actualizarpedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PEDIDO POR USUARIO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/pedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PEDIDO NUEVO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"formadepago\" :\"Tarjeta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/nuevopedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"nuevopedido"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
