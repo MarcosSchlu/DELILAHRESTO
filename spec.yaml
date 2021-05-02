@@ -36,9 +36,6 @@ paths:
       responses:
         "201":
           description: Usuario creado exitosamente
-          content:
-            text/plain:
-              example: Usuario creado exitosamente
         "400":
           description: Todos los campos deben estar completos
         "401":
@@ -60,9 +57,6 @@ paths:
       responses:
         "201":
           description: Usuario logueado exitosamente
-          content:
-            text/plain:
-              example: Usuario logueado exitosamente
         "200":
           description: Aministrador logueado exitosamente
         "401":
@@ -76,6 +70,14 @@ paths:
       summary: Usuarios registrados
       description: Obtiene todos los usuarios registrados
       operationId: buscarUsuarios
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
       responses:
         "201":
           description: Usuarios registrados
@@ -90,14 +92,23 @@ paths:
       summary: Crea nuevo producto
       description: Agrega un nuevo producto a la base de datos
       operationId: crearproducto
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Producto a registrar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/nuevoProducto'
       responses:
         "201":
           description: Producto creado
-          content:
-            application/json:
-              example:
-                msg: Producto creado
-                product_id: 3
         "400":
           description: El producto ya existe
         "404":
@@ -111,6 +122,14 @@ paths:
       summary: Productos registrados
       description: Obtiene todos los productos registrados
       operationId: buscarProductos
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
       responses:
         "201":
           description: Productos registrados
@@ -125,8 +144,22 @@ paths:
       tags:
       - Productos
       summary: Modifica un producto
-      description: Actualiza un producto existente
+      description: Actualiza precio de un producto existente
       operationId: actualizarproducto
+      parameters:
+      - name: authorization
+        in: header
+        required: true
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Usuario a registrar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/actualizarProducto'
       responses:
         "201":
           description: Producto modificado
@@ -143,6 +176,20 @@ paths:
       summary: Eliminar un producto
       description: Elimina un producto de la base de datos
       operationId: eliminarProducto
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Producto a eliminar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/borrarProducto'
       responses:
         "201":
           description: Producto eliminado
@@ -156,6 +203,14 @@ paths:
       - Pedidos
       summary: Crea nuevo pedido
       operationId: crearPedido
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
       requestBody:
         description: Pedido a resgistrar
         content:
@@ -176,6 +231,20 @@ paths:
       tags:
       - Pedidos
       summary: Pedidos registrados por usuario
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Usuario a registrar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/buscarPedidoPorUsuario'
       responses:
         "201":
           description: Pedidos registrados por usuario
@@ -187,6 +256,14 @@ paths:
       - Pedidos
       summary: Pedidos registrados
       operationId: buscarPedidos
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
       responses:
         "201":
           description: Lista de pedidos registrados
@@ -208,6 +285,14 @@ paths:
       - Pedidos
       summary: Modifica el estado de un pedido
       operationId: actualizarpedido
+      parameters:
+      - name: authorization
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
       requestBody:
         content:
           application/json:
@@ -237,22 +322,22 @@ components:
       properties:
         usuario:
           type: string
-          example: JuanPerez
+          example: Gonza
         nombreyapellido:
           type: string
-          example: Juan Perez
+          example: Gonza Perez
         email:
           type: string
-          example: juan@perez.com
+          example: guan@perez.com
         telefono:
           type: string
-          example: "1351531451"
+          example: "1351531459"
         dirreciondeenvio:
           type: string
-          example: Maiupo 25
+          example: Maiupo 94
         contraseña:
           type: string
-          example: juanperez25
+          example: gonperez25
     logIn:
       required:
       - contraseña
@@ -265,10 +350,45 @@ components:
         contraseña:
           type: string
           example: juanperez25
+    nuevoProducto:
+      required:
+      - Precio
+      - Producto
+      type: object
+      properties:
+        Producto:
+          type: string
+          example: Muslo de pollo
+        Precio:
+          type: integer
+          example: 80
+    actualizarProducto:
+      required:
+      - Precio
+      - Producto
+      type: object
+      properties:
+        Producto:
+          type: string
+          example: Muslo de pollo
+        Precio:
+          type: integer
+          example: 100
+    borrarProducto:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 5
     actualizarpedido:
       type: object
       properties:
-        order_status:
+        id:
+          type: integer
+          example: 5
+        estado:
           type: string
           description: estado
           enum:
@@ -301,11 +421,31 @@ components:
         productos:
           type: string
           example: Milanesa
+    buscarPedidoPorUsuario:
+      type: object
+      properties:
+        usuario:
+          type: string
+          example: Gonza
     crearPedido:
       required:
       - formadepago
       - producto
       type: object
+      properties:
+        producto:
+          type: string
+          description: estado
+          enum:
+          - Hamburguesa
+          - Pancho
+          - Coca
+        formadepago:
+          type: string
+          description: estado
+          enum:
+          - Efectivo
+          - Tarjeta
   securitySchemes:
     BearerAuth:
       type: http
