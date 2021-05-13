@@ -90,7 +90,7 @@
 					"response": []
 				},
 				{
-					"name": "USUARIOS",
+					"name": "LISTADO DE USUARIOS",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {
 							"content-type": true
@@ -102,7 +102,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
@@ -158,7 +158,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"usuario\": \"Dolo\",\r\n        \"nombreyapellido\": \"Dolo Perez\",\r\n        \"email\": \"dolo@perez.com\",\r\n        \"telefono\": \"0115465139\",\r\n        \"dirreciondeenvio\": \"Libertador 25\",\r\n        \"contraseña\": \"dolo25\"\r\n}",
+							"raw": "{\r\n        \"usuario\": \"Marcos\",\r\n        \"nombreyapellido\": \"Marcos Perez\",\r\n        \"email\": \"marcos@perez.com\",\r\n        \"telefono\": \"0115465138\",\r\n        \"dirreciondeenvio\": \"Libertador 21\",\r\n        \"contraseña\": \"marquitos21\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -185,19 +185,19 @@
 			"name": "PRODUCTOS",
 			"item": [
 				{
-					"name": "PRODUCTO NUEVO",
+					"name": "NUEVO PRODUCTO",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"precio\": \"100\"\r\n}",
+							"raw": "{\r\n        \"producto\": \"Pasta\",\r\n        \"precio\": \"150\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -219,7 +219,7 @@
 					"response": []
 				},
 				{
-					"name": "PRODUCTOS",
+					"name": "LISTADO DE PRODUCTOS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -228,13 +228,13 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwOTI3NDQ0LCJleHAiOjE2MjA5MzEwNDR9.ohulOuEfqLTZE83e4lCFyUgk7_RzQ2LEZRNHZKHguBM",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"producto\": \"Hamburguesa\",\r\n        \"precio\": \"150\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -256,19 +256,19 @@
 					"response": []
 				},
 				{
-					"name": "PRODUCTO ACTUALIZAR",
+					"name": "ACTUALIZAR PRODUCTO",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"precio\": \"30\"\r\n}",
+							"raw": "{\r\n        \"producto\": \"Pasta\",\r\n        \"precio\": \"130\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -290,19 +290,19 @@
 					"response": []
 				},
 				{
-					"name": "PORDUCTO BORRAR",
+					"name": "BORRAR PORDUCTO",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5Mzc1MTY4LCJleHAiOjE2MTkzNzg3Njh9.ZvuO8MtiE3har2OYzBNAD7LJqclNOWwAWqjwR3NVoeA",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id\": 6\r\n}",
+							"raw": "{\r\n        \"id\": 7\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -329,7 +329,7 @@
 			"name": "PEDIDOS",
 			"item": [
 				{
-					"name": "PEDIDOS",
+					"name": "LISTADO DEPEDIDOS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -338,13 +338,13 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwOTIzNDk2LCJleHAiOjE2MjA5MjcwOTZ9.10ZhpN0uOOwF3zk7_fYpjmQHTyko4EgCGHuRnRSIONw",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"usuario\": \"1\",\r\n        \"producto\": \"Alfajor\",\r\n        \"precio\": \"20\",\r\n        \"direcciondeenvio\": \"Alfajor\",\r\n        \"formadepago\": \"Alfajor\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,13 +366,13 @@
 					"response": []
 				},
 				{
-					"name": "PEDIDO ACTUALIZAR",
+					"name": "ACTUALIZAR PERIDO",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
@@ -400,7 +400,7 @@
 					"response": []
 				},
 				{
-					"name": "PEDIDO POR USUARIO",
+					"name": "PEDIDOS POR USUARIO",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -409,7 +409,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzY1OTk4LCJleHAiOjE2MjA3Njk1OTh9.XMKS7NQN-HEm4Wkpr9lT14VOZ_b-Io_1bYIvpNSKAyA",
 								"type": "text"
 							}
 						],
@@ -437,19 +437,19 @@
 					"response": []
 				},
 				{
-					"name": "PEDIDO NUEVO",
+					"name": "NUEVO PEDIDO",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjE5OTcxODA5LCJleHAiOjE2MTk5NzU0MDl9.4ekG7of-7gGMxU7gqJV-25JvFGecds1MZCFLnb2NhwY",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiYWRtaW4iOiIwIiwiaWF0IjoxNjIwOTIzNzgwLCJleHAiOjE2MjA5MjczODB9.yWmVue5M7K5DBqjIraW-37yCaqujeKxxrkGoOOAdk4c",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"producto\": \"Coca\",\r\n        \"formadepago\" :\"Tarjeta\"\r\n}",
+							"raw": "{\r\n        \"pedido\": [\r\n                {\r\n                \"producto\": \"Coca\",\r\n                \"cantidad\": \"1\"   \r\n                },\r\n                {\r\n                \"producto\": \"Wok\",\r\n                \"cantidad\": \"1\"   \r\n                }\r\n                ],\r\n        \"formadepago\" :\"Tarjeta\",\r\n        \"total\" : \"150\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -465,6 +465,77 @@
 							"port": "3006",
 							"path": [
 								"nuevopedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BORRAR PEDIDO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNTE4NTczLCJleHAiOjE2MjA1MjIxNzN9.f2oaoLvlo11C0ol6We68IsfGmQHd64g6LElJtG4QHEE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/borrarpedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"borrarpedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DETALLE DE UN PEDIDO",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiYWRtaW4iOiJ0cnVlIiwiaWF0IjoxNjIwNzYyOTgyLCJleHAiOjE2MjA3NjY1ODJ9.likAaKBXmNdJA9-8clH5sQtRvPohhwCLPfbIW8rFsV4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"pedido\": \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3006/detalledelpedido",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3006",
+							"path": [
+								"detalledelpedido"
 							]
 						}
 					},

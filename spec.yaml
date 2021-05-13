@@ -71,7 +71,7 @@ paths:
       description: Obtiene todos los usuarios registrados
       operationId: buscarUsuarios
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: true
         style: simple
@@ -93,7 +93,7 @@ paths:
       description: Agrega un nuevo producto a la base de datos
       operationId: crearproducto
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: true
         style: simple
@@ -123,7 +123,7 @@ paths:
       description: Obtiene todos los productos registrados
       operationId: buscarProductos
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: true
         style: simple
@@ -140,14 +140,14 @@ paths:
       security:
       - BearerAuth: []
   /actualizarproducto:
-    put:
+    post:
       tags:
       - Productos
       summary: Modifica un producto
       description: Actualiza precio de un producto existente
       operationId: actualizarproducto
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: true
         style: simple
@@ -170,14 +170,14 @@ paths:
       security:
       - BearerAuth: []
   /borrarproducto:
-    delete:
+    post:
       tags:
       - Productos
       summary: Eliminar un producto
       description: Elimina un producto de la base de datos
       operationId: eliminarProducto
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: false
         style: simple
@@ -204,7 +204,7 @@ paths:
       summary: Crea nuevo pedido
       operationId: crearPedido
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: false
         style: simple
@@ -232,22 +232,18 @@ paths:
       - Pedidos
       summary: Pedidos registrados por usuario
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: false
         style: simple
         explode: false
         schema:
           example: TOKEN OF LOGIN
-      requestBody:
-        description: Usuario a registrar
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/buscarPedidoPorUsuario'
       responses:
         "201":
           description: Pedidos registrados por usuario
+        "400":
+          description: El usuario no tiene pedidos registrados
       security:
       - BearerAuth: []
   /pedidos:
@@ -257,7 +253,7 @@ paths:
       summary: Pedidos registrados
       operationId: buscarPedidos
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: false
         style: simple
@@ -279,6 +275,41 @@ paths:
           description: Erroa al buscar pedidos registrados
       security:
       - BearerAuth: []
+  /detalledelpedido:
+    get:
+      tags:
+      - Pedidos
+      summary: Detalle de un pedidos registrados
+      operationId: buscardetalledelpedido
+      parameters:
+      - name: auth
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Pedido a buscar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pedidoabuscar'
+      responses:
+        "201":
+          description: Detalle de un pedido
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/buscardetalledelpedido'
+        "400":
+          description: No existen el pedido
+        "409":
+          description: Error al buscar pedidos registrados
+      security:
+      - BearerAuth: []
   /actualizarpedido:
     post:
       tags:
@@ -286,7 +317,7 @@ paths:
       summary: Modifica el estado de un pedido
       operationId: actualizarpedido
       parameters:
-      - name: authorization
+      - name: auth
         in: header
         required: false
         style: simple
@@ -306,6 +337,34 @@ paths:
           description: El usuario no es administrador
         "400":
           description: Todos los campos deben estar completos
+      security:
+      - BearerAuth: []
+  /borrarpedido:
+    post:
+      tags:
+      - Pedidos
+      summary: Eliminar un pedido
+      description: Elimina un pedido de la base de datos
+      operationId: borrarpedido
+      parameters:
+      - name: auth
+        in: header
+        required: false
+        style: simple
+        explode: false
+        schema:
+          example: TOKEN OF LOGIN
+      requestBody:
+        description: Pedido a eliminar
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/borrarpedido'
+      responses:
+        "201":
+          description: Producto eliminado
+        "404":
+          description: Error al eliminar el producto
       security:
       - BearerAuth: []
 components:
@@ -382,6 +441,14 @@ components:
         id:
           type: integer
           example: 5
+    borrarpedido:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 5
     actualizarpedido:
       type: object
       properties:
@@ -421,12 +488,29 @@ components:
         productos:
           type: string
           example: Milanesa
-    buscarPedidoPorUsuario:
+    pedidoabuscar:
+      required:
+      - pedido
       type: object
       properties:
-        usuario:
+        pedido:
+          type: integer
+          example: 5
+    buscardetalledelpedido:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 2
+        idPedido:
+          type: integer
+          example: 5
+        producto:
           type: string
-          example: Gonza
+          example: Hamburguesa
+        cantidad:
+          type: integer
+          example: 5
     crearPedido:
       required:
       - formadepago

@@ -13,7 +13,6 @@ module.exports = {
             }
         );
         req.infousuario = usuario;
-        console.log(usuario)
         return next();
         } catch (err) {
         console.log("error" + err);

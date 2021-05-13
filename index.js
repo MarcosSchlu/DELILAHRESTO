@@ -1,10 +1,9 @@
 const express = require("express");
-const {crearPedido, buscarPedidos, buscarPedidoPorUsuario, actualizarpedido } = require('./endpoints/pedidos');
+const {crearPedido, buscarPedidos, buscarPedidoPorUsuario, actualizarpedido, eliminarPedido, detalleDeLaOrden } = require('./endpoints/pedidos');
 const {crearproducto, buscarProductos, actualizarproducto, eliminarProducto} = require('./endpoints/productos');
 const {crearUsuario, buscarUsuarios, logIn} = require('./endpoints/usuarios');
 const {validarJWT, validarJWTAdmin} = require('./middlewares/validarJWT');
 const {buscarInfoUsuario} = require('./middlewares/buscarInfoUsuario');
-const {buscarInfoProductos} = require('./middlewares/buscarInfoProductos');
 
 const app = express();
 
@@ -16,7 +15,7 @@ app.listen(3006, function () {
 
 //Pedidos
 // Crea un nuevo pedido
-app.post('/nuevopedido', validarJWT, buscarInfoUsuario, buscarInfoProductos,  crearPedido)
+app.post('/nuevopedido', validarJWT, buscarInfoUsuario,  crearPedido)
 
 // Obtiene todos los pedidos
 app.get('/pedidos', validarJWTAdmin, buscarPedidos)
@@ -24,9 +23,14 @@ app.get('/pedidos', validarJWTAdmin, buscarPedidos)
 // Obtiene pedidos de un usuario especifico
 app.get('/pedido', validarJWT, buscarInfoUsuario, buscarPedidoPorUsuario)
 
+// Obtiene pedidos de un usuario especifico
+app.get('/detalledelpedido', validarJWT, buscarInfoUsuario, detalleDeLaOrden)
+
 // Modifica un pedido existente
 app.post('/actualizarpedido', validarJWTAdmin, actualizarpedido)
 
+// Elimina un pedido
+app.post('/borrarpedido', validarJWTAdmin, eliminarPedido)
 
 //Productos
 // Crea un nuevo producto
@@ -39,7 +43,7 @@ app.get('/productos',  validarJWT, buscarProductos)
 app.post('/actualizarproducto',  validarJWTAdmin, actualizarproducto)
 
 // Elimina un producto
-app.delete('/borrarproducto', validarJWTAdmin, eliminarProducto)
+app.post('/borrarproducto', validarJWTAdmin, eliminarProducto)
 
 
 //Usuarios

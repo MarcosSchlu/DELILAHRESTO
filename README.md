@@ -58,9 +58,11 @@ npm start
 
 |  METHOD | ENDPOINT           | BODY                                                                             | HEADER | DESCRIPCION                      |
 |---------|--------------------|----------------------------------------------------------------------------------|--------|----------------------------------|
-| POST    | /nuevopedido       | {producto, formadepago}                                                          |{token} | Crea nuevo pedido                |
+| POST    | /nuevopedido       | {producto, formadepago, total}                                                   |{token} | Crea nuevo pedido                |
 | GET     | /pedidos           |                                                                                  |{token} | Pedidos registrados              |
+| GET     | /detalledelpedido  | {pedido}                                                                         |{token} | Detalle del pedido               |
 | GET     | /pedido            |                                                                                  |{token} | Pedidos registrados por usuario  |
 | POST    | /actualizarpedido  | { id, estado }                                                                   |{token} | Modifica el estado de un pedido  |
+| DELETE  | /borrarpedido      | { id }                                                                           |{token} | Elimina el pedido pasivamentedo  |
 
 El token es unico a cada usuario que se loguea y expira a la hora. 
