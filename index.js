@@ -23,7 +23,7 @@ app.get('/pedidos', validarJWTAdmin, buscarPedidos)
 // Obtiene pedidos de un usuario especifico
 app.get('/pedido', validarJWT, buscarInfoUsuario, buscarPedidoPorUsuario)
 
-// Obtiene pedidos de un usuario especifico
+// Obtiene detalle de un pedidos
 app.get('/detalledelpedido', validarJWT, buscarInfoUsuario, detalleDeLaOrden)
 
 // Modifica un pedido existente
